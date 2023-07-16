@@ -22,10 +22,11 @@
       <div class="col-lg-3">
         {{post.post_date}}
         <hr>
+        <h6 class="mb-4">Category: <i class="text-primary">{{ post.category }}</i></h6>
 
       {% if user.is_authenticated %}
 
-        <a class="btn btn-outline-primary ms-5" href="{% url 'update_post' post.pk %}">Edit</a>
+        <a class="btn btn-outline-primary" href="{% url 'update_post' post.pk %}">Edit</a>
         <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
           Delete
         </button>

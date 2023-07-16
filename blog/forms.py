@@ -3,7 +3,6 @@ from django_summernote.widgets import SummernoteWidget
 from .models import Post
 
 
-choices = ['News', 'Fuck']
 
 class PostForm(forms.ModelForm):
     class Meta:
@@ -14,7 +13,7 @@ class PostForm(forms.ModelForm):
           'title': forms.TextInput(attrs={'class': 'form-control'}),
           'title_tag': forms.TextInput(attrs={'class': 'form-control'}),
           'author': forms.Select(attrs={'class': 'form-control'}),
-          'category': forms.Select(choices=choices, attrs={'class': 'form-control'}),
+          'category': forms.Select(attrs={'class': 'form-control'}),
           'body': SummernoteWidget(),
         }
         

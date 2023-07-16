@@ -16,6 +16,7 @@
         {{ form.title|as_crispy_field }}
         {{ form.title_tag|as_crispy_field }}
         {{ form.author|as_crispy_field }}
+        {{ form.category|as_crispy_field }}
         <a href="{% url 'home' %}"><button type="button" class="btn btn-outline-secondary mt-5">Back</button></a>
         <button class="btn btn-outline-success mt-5">Post</button>
       </div>

@@ -19,7 +19,7 @@ class Post(models.Model):
     title = models.CharField(max_length=255)
     title_tag = models.CharField(max_length=255, default='Post ')
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    category = models.CharField(max_length=255, default='No category')
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
     body = models.TextField(blank=True, null=True)
     post_date = models.DateTimeField(auto_now_add=True)
     
