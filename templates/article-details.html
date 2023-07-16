@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Blog: {{post.title_tag}}{% endblock title %}
+
+{% block content %}
+
+<div class="container my-4 pt-5 border border-secondary">
+  <div class="row">
+    <div class="col-lg-9">
+        <h3 class="article-title float-start">{{post.title}}</h3>
+        <h5 class="author float-end">By <em>{{post.author.first_name}} {{post.author.last_name}}</em></h5> 
+        <br><hr>
+        <p class="body my-5">{{post.body | safe}}</p>    
+    </div>
+
+    <div class="col-lg-3">
+      {{post.post_date}}
+      <hr>
+
+    {% if user.is_authenticated %}
+
+      <a class="btn btn-outline-primary ms-5" href="{% url 'update_post' post.pk %}">Edit</a>
+      <a class="btn btn-outline-danger" href="{% url 'delete_post' post.pk %}">Delete</a>
+
+    {% else %}
+      <h5>Log in for more options</h5>
+      
+    {% endif %}
+
+      <a href="{% url 'home' %}"><button type="button" class="btn btn-outline-secondary">Back</button></a>  
+    </div>
+  </div>
+
+</div>
+
+
+{% endblock content %}

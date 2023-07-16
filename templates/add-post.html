@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+  Create Post
+{% endblock %}
+
+{% block content %}
+  <h1 class="page-title my-4 pt-5">Add Blog Post</h1>
+
+  <form method="POST">
+    {% csrf_token %}
+
+    <div class="row mt-4">
+      <div class="col-lg-3 col-md-12 ms-4">
+        {{ form.title|as_crispy_field }}
+        {{ form.title_tag|as_crispy_field }}
+        {{ form.author|as_crispy_field }}
+        <a href="{% url 'home' %}"><button type="button" class="btn btn-outline-secondary mt-5">Back</button></a>
+        <button class="btn btn-outline-success mt-5">Post</button>
+      </div>
+      <div class="col-lg-8 col-md-12">
+        <p class="mt-4">{{ form.body|safe }}</p>
+      </div> 
+    </div>
+
+  </form>
+{% endblock %}
